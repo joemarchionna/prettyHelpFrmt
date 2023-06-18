@@ -33,17 +33,12 @@ def getBaseArgs(parser, configOptions=["prod", "test"], defaultConfigOption="tes
         "-c",
         "--config",
         choices=configOptions,
-        help="Configuration 'name' To Use, Default: '"
-        + defaultConfigOption
-        + "', Options: "
-        + ", ".join(configOptions),
+        help="Configuration 'name' To Use, Default: '" + defaultConfigOption + "', Options: " + ", ".join(configOptions),
         metavar="name",
         default=defaultConfigOption,
     )
 
-    parser.add_argument(
-        "--magic", help="Use black-box magic", action="store_true", default=False
-    )
+    parser.add_argument("--magic", help="Use black-box magic", action="store_true", default=False)
 
     return parser
 

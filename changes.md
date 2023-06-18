@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2023 06 17
+### Fixed
+- module init.py file
+### Added
+- requirements folder
+- _metadata.json file and setup 
+
 ## [1.0.0] - 2019 07 16
 ### Added
 - Initial Release

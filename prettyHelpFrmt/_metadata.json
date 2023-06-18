@@ -1,0 +1,18 @@
+{
+    "name": "prettyHelpFrmt",
+    "version": "1.1.0",
+    "author": "Joe Marchionna",
+    "author_email": "joemarchionna@gmail.com",
+    "description": "Python argparse HelpFormatter",
+    "requirements": "requirements/prod.txt",
+    "url": "https://github.com/joemarchionna/prettyHelpFrmt",
+	"keywords": ["ARGS", "ARGUMENTS", "PARAMETERS","HELPER"],
+	"packageData":{
+        "prettyHelpFrmt":["*.json"]
+    },
+	"classifiers": [
+        "Programming Language :: Python :: 3",
+        "Operating System :: OS Independent",
+        "Intended Audience :: Developers"
+    ]
+}

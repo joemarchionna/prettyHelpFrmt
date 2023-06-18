@@ -2,6 +2,7 @@ import argparse
 import os
 import re
 
+
 # This was modified based on the the following:
 # https://hg.python.org/cpython/file/3.5/Lib/argparse.py
 class PrettyHelpFormatter(argparse.HelpFormatter):
@@ -9,11 +10,12 @@ class PrettyHelpFormatter(argparse.HelpFormatter):
     -h help command; actionSeparation is equal to the spacing to be put
     between actions (-a and --action for example), the original value for
     argparse was 2, which is the default for this implementation
-    
+
     usage:
     formatter = lambda prg: PrettyHelpFormatter(prg)
     parser = argparse.ArgumentParser(description="Command Parser", formatter_class=formatter)
     """
+
     def __init__(
         self,
         prog,
@@ -29,7 +31,7 @@ class PrettyHelpFormatter(argparse.HelpFormatter):
     def _format_action_invocation(self, action):
         if not action.option_strings:
             default = self._get_default_metavar_for_positional(action)
-            metavar, = self._metavar_formatter(action, default)(1)
+            (metavar,) = self._metavar_formatter(action, default)(1)
             return metavar
 
         else:
@@ -53,16 +55,9 @@ class PrettyHelpFormatter(argparse.HelpFormatter):
             # after the first action, where 2 spaces is the absolute minimum
             length = self.actionSeparation
             if parts[0].startswith("--"):
-                parts[0] = (
-                    "{message:{fill}>{width}}".format(
-                        message="", fill=" ", width=length
-                    )
-                    + parts[0]
-                )
+                parts[0] = "{message:{fill}>{width}}".format(message="", fill=" ", width=length) + parts[0]
             length = max(2, (self.actionSeparation - len(parts[0])))
 
             # actually create the text
-            separation = "{message:{fill}<{width}}".format(
-                message=",", fill=" ", width=length
-            )
+            separation = "{message:{fill}<{width}}".format(message=",", fill=" ", width=length)
             return separation.join(parts)
