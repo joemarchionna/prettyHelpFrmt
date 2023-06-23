@@ -1,7 +1,6 @@
 import sys
 
 sys.path.append(".")
-from prettyHelpFrmt.prettyHelpFormatter import PrettyHelpFormatter
 import prettyHelpFrmt.createArgs as createArgs
 import argparse
 
@@ -11,4 +10,5 @@ if __name__ == "__main__":
 
     createArgs.getBaseArgs(parser)
     createArgs.addInputArgs(parser)
-    parser.print_help()
+    createArgs.addSubParsers(parser, formatterClass=formatter)
+    parser.parse_args()

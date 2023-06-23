@@ -17,7 +17,10 @@ see the file <b>prettyHelpFrmt/cmdPretty.py</b> to see the formatter code used</
 
 the file <b>prettyHelpFrmt/cmdOriginal.py</b> the originally-supplied help formatter</p>
 
-Both run the same command switches, see the example output below
+Both run the same command switches, see the example output below. Note that if using sub_parsers, you 
+need to specifiy the formatter_class when creating the sub_parser, otherwise the help for the 
+sub_parser will revert back to the default HelpFormatter
+
 
 Example
 =======

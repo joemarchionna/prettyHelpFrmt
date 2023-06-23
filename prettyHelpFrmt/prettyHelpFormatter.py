@@ -12,7 +12,7 @@ class PrettyHelpFormatter(argparse.HelpFormatter):
     argparse was 2, which is the default for this implementation
 
     usage:
-    formatter = lambda prg: PrettyHelpFormatter(prg)
+    formatter = lambda prg: PrettyHelpFormatter(prg, max_help_position=80, actionSeparation=30)
     parser = argparse.ArgumentParser(description="Command Parser", formatter_class=formatter)
     """
 
@@ -22,7 +22,7 @@ class PrettyHelpFormatter(argparse.HelpFormatter):
         indent_increment=4,
         max_help_position=80,
         width=160,
-        actionSeparation=2,
+        actionSeparation=10,
     ):
         super().__init__(prog, indent_increment, max_help_position, width)
         # changes Joe Marchionna 2019 07 15
@@ -33,7 +33,6 @@ class PrettyHelpFormatter(argparse.HelpFormatter):
             default = self._get_default_metavar_for_positional(action)
             (metavar,) = self._metavar_formatter(action, default)(1)
             return metavar
-
         else:
             parts = []
 
@@ -41,7 +40,6 @@ class PrettyHelpFormatter(argparse.HelpFormatter):
             #    -s, --long
             if action.nargs == 0:
                 parts.extend(action.option_strings)
-
             # if the Optional takes a value, format is:
             #    -s ARGS, --long ARGS
             else:
@@ -60,4 +58,6 @@ class PrettyHelpFormatter(argparse.HelpFormatter):
 
             # actually create the text
             separation = "{message:{fill}<{width}}".format(message=",", fill=" ", width=length)
+            # end changes
+
             return separation.join(parts)
